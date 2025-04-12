@@ -151,7 +151,7 @@ mod install {
 
         log::info!("mdbook-merjong is now installed. You can start using it in your book.");
         let codeblock = r#"```merjong
-111m
+19m19p19s1234567z-q
 ```"#;
         log::info!("Add a code block like:\n{}", codeblock);
 
