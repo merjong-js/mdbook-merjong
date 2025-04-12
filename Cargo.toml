@@ -2,6 +2,11 @@
 name = "mdbook-merjong"
 version = "0.1.0"
 edition = "2024"
+description = "A preprocessor for mdbook to add merjong support."
+license = "MIT"
+repository = "https://github.com/merjong-js/mdbook-merjong"
+homepage = "https://github.com/merjong-js"
+readme = "README.md"
 
 [dependencies]
 anyhow = { version = "1.0.97" }
