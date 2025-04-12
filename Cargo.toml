@@ -24,8 +24,5 @@ name = "mdbook_merjong"
 path = "src/lib.rs"
 
 [features]
-#default = ["cli", "cli-install"]
-#cli = ["clap", "env_logger"]
-#cli-install = ["toml_edit"]
-default = []
+default = ["cli-install"]
 cli-install = []

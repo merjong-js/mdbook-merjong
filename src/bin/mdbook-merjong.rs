@@ -13,10 +13,14 @@ struct Cli {
 
 #[derive(Subcommand)]
 enum Commands {
-    Supports { renderer: String },
+    Supports {
+        renderer: String,
+    },
 
-    //#[cfg(feature = "cli-install")]
-    Install { dir: Option<PathBuf> },
+    #[cfg(feature = "cli-install")]
+    Install {
+        dir: Option<PathBuf>,
+    },
 }
 
 fn main() {
@@ -38,7 +42,7 @@ fn run(cli: Cli) -> Result<()> {
             handle_supports(renderer);
         }
 
-        //#[cfg(feature = "cli-install")]
+        #[cfg(feature = "cli-install")]
         Some(Commands::Install { dir }) => {
             install::handle_install(dir.unwrap_or_else(|| PathBuf::from(".")))
         }
@@ -73,7 +77,7 @@ fn handle_supports(renderer: String) -> ! {
     }
 }
 
-//#[cfg(feature = "cli-install")]
+#[cfg(feature = "cli-install")]
 mod install {
     use anyhow::{Context, Result};
     use std::{
@@ -109,6 +113,8 @@ mod install {
         let mut doc = toml
             .parse::<DocumentMut>()
             .context("configuration is not valid TOML")?;
+
+        let _ = preprocessor(&mut doc);
 
         let mut additional_js = additional_js(&mut doc);
         for (name, content) in MERJONG_JS_FILES {
@@ -171,5 +177,19 @@ mod install {
                     .as_array_mut()
             })
             .ok_or(())
+    }
+
+    fn preprocessor(doc: &mut DocumentMut) -> Result<&mut Item, ()> {
+        let doc = doc.as_table_mut();
+
+        let empty_table = Item::Table(Table::default());
+        let item = doc.entry("preprocessor").or_insert(empty_table.clone());
+        let item = item
+            .as_table_mut()
+            .ok_or(())?
+            .entry("merjong")
+            .or_insert(empty_table);
+        item["command"] = toml_edit::value("mdbook-merjong");
+        Ok(item)
     }
 }
