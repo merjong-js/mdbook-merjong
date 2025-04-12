@@ -1,0 +1,31 @@
+[package]
+name = "mdbook-merjong"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+anyhow = { version = "1.0.97" }
+clap = { version = "4.5.36", features = ["derive"] }
+env_logger = { version = "0.11.8" }
+log = { version = "0.4.27" }
+mdbook = { version = "0.4.48", default-features = false }
+path-slash = { version = "0.2.1" }
+pulldown-cmark = { version = "0.13.0" }
+pulldown-cmark-to-cmark = { version = "21.0.0" }
+serde_json = { version = "1.0.140" }
+toml_edit = { version = "0.22.24" }
+
+[[bin]]
+name = "mdbook_merjong"
+path = "src/bin/mdbook-merjong.rs"
+
+[lib]
+name = "mdbook_merjong"
+path = "src/lib.rs"
+
+[features]
+#default = ["cli", "cli-install"]
+#cli = ["clap", "env_logger"]
+#cli-install = ["toml_edit"]
+default = []
+cli-install = []
