@@ -1,6 +1,6 @@
 # mdbook-merjong
 
-**mdbook-merjong** is an [mdBook](https://github.com/rust-lang/mdBook) preprocessor that adds support for rendering Mahjong tiles from MPSZ notation using [`merjong`](https://github.com/n3gero/merjong).
+**mdbook-merjong** is an [mdBook](https://github.com/rust-lang/mdBook) preprocessor that adds support for rendering Mahjong tiles from MPSZ notation using [`Merjong`](https://github.com/n3gero/merjong).
 
 ## Example
 
