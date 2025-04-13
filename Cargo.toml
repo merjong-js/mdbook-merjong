@@ -1,6 +1,6 @@
 [package]
 name = "mdbook-merjong"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2024"
 description = "A preprocessor for mdbook to add merjong support."
 license = "MIT"
