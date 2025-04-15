@@ -1,5 +1,9 @@
 # mdbook-merjong
 
+[![crates.io](https://img.shields.io/crates/v/mdbook-merjong)](https://crates.io/crates/mdbook-merjong)
+
+## About
+
 **mdbook-merjong** is an [mdBook](https://github.com/rust-lang/mdBook) preprocessor that adds support for rendering Mahjong tiles from MPSZ notation using [`Merjong`](https://github.com/n3gero/merjong).
 
 ## Example
